@@ -1,0 +1,71 @@
+.trading-form {
+    width: 100%;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #dbdee0;
+}
+
+.trading-form input {
+    padding: 10px;
+    width: 160px;
+}
+
+/* remove number arrows */
+.trading-form input::-webkit-outer-spin-button,
+.trading-form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.trading-form button {
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    width: 80px;
+    cursor: pointer;
+}
+
+.trading-form button.buy {
+    background-color: #3e8f16;
+    border: 2px solid green;
+}
+
+.trading-form button.sell {
+    background-color: rgba(255, 0, 0, 0.78);
+    border: 2px solid red;
+}
+
+.trading-form button.buy:disabled {
+    background-color: rgb(0 128 0 / 28%);
+    font-weight: normal;
+    border: 2px solid rgba(0, 128, 0, 0.64);
+}
+
+.trading-form button.sell:disabled {
+    background-color: rgb(255 0 0 / 33%);
+    font-weight: normal;
+    border: 2px solid rgba(255, 0, 0, 0.66);
+}
+
+@media screen and (max-width: 680px) {
+    .trading-form {
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .trading-form input {
+        padding: 6px;
+        width: 160px;
+    }
+
+    .trading-form button {
+        width: 160px;
+        padding: 6px;
+    }
+}

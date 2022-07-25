@@ -1,0 +1,23 @@
+.order td {
+    text-align: center;
+}
+
+.pair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pair img {
+    width: 24px;
+    height: 24px;
+}
+
+.buy-side {
+    background-color: rgb(0 128 0 / 28%);
+}
+
+.sell-side {
+    background-color: rgb(255 0 0 / 33%);
+}

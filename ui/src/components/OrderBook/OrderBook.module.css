@@ -1,0 +1,48 @@
+.orders-table {
+    width: 100%;
+    min-width: 360px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.orders-table tbody:before {
+    content: '@';
+    display: block;
+    line-height: 10px;
+    text-indent: -99999px;
+}
+
+.orders-table tbody td {
+    padding: 10px;
+}
+
+.orders-table tbody tr {
+    border-bottom: 1px solid black;
+}
+
+.orders-table tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(219, 222, 224, 0.5);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 16px;
+    background: #dbdee0;
+}
+
+.total {
+    margin-top: 10px;
+    padding: 8px;
+    text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+    .orders-table {
+        table-layout: auto;
+    }
+
+    .orders-table tbody td {
+        font-size: 0.8rem;
+    }
+}

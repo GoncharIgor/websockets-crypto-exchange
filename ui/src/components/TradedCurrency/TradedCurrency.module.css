@@ -1,0 +1,33 @@
+.currency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 12px;
+    border: 1px solid gray;
+    border-radius: 12px;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.currency:hover {
+    filter: grayscale(60%);
+    background: rgba(95, 175, 246, 0.28);
+}
+
+.currency.active {
+    filter: grayscale(0%);
+    background: rgba(95, 175, 246, 0.38);
+}
+
+.currency img {
+    height: 50px;
+    width: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .currency img {
+        height: 36px;
+        width: 36px;
+    }
+}
