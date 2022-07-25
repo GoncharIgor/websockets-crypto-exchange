@@ -1,6 +1,8 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
+
 import {OrderBook} from './OrderBook';
+import {TradingCurrencyContext} from "../../context/tradingCurrency";
 
 const mockOrders = [
     {
@@ -67,9 +69,22 @@ describe('Header', () => {
         expect(emptyStateElement).not.toBeInTheDocument();
     });
 
-    test('should render Empty state component', () => {
+    test('should render Empty state component with default traded currency', () => {
         render(<OrderBook orders={[]}/>);
-        const emptyStateElement = screen.getByText(/No open orders/i);
+        const emptyStateElement = screen.getByText(/No open orders for BTC yet/i);
+
+        expect(emptyStateElement).toBeInTheDocument();
+    });
+
+    test('should render Empty state component with updated traded currency', () => {
+        const providerProps = {
+            activeCurrency: 'eth'
+        };
+
+        render(<TradingCurrencyContext.Provider value={providerProps}>
+            <OrderBook orders={[]}/>
+        </TradingCurrencyContext.Provider>);
+        const emptyStateElement = screen.getByText(/No open orders for ETH yet/i);
 
         expect(emptyStateElement).toBeInTheDocument();
     });
