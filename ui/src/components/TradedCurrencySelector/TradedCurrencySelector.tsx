@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 
-
 import { TradedCurrency } from '../TradedCurrency/TradedCurrency';
 
 import { TradingCurrencyContext } from '../../context/tradingCurrency';

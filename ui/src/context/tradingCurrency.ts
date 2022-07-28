@@ -5,8 +5,11 @@ interface ITradingCurrencyContext {
     setActiveCurrency?: Dispatch<SetStateAction<string>>;
 }
 
+// Settings default values
+// These well later be overwritten by specifying 'value'
 const defaultState = {
-    activeCurrency: 'btc'
+    activeCurrency: 'btc',
+    setActiveCurrency: () => ''
 };
 
 // default state is indicated in App component, in Provider

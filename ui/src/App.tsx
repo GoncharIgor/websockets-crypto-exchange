@@ -12,6 +12,7 @@ import styles from './App.module.css';
 import { Order } from './types/Order';
 import socket from './socket';
 import { TradingCurrencyContext } from './context/tradingCurrency';
+import { useUserStore } from './context/store';
 
 const snackBarOptions = {
     style: {
@@ -26,14 +27,14 @@ const snackBarOptions = {
 };
 
 function App(): JSX.Element {
-    const userId = 'IgorGonchar'; // has to be in global state management storage/context
+    const { user } = useUserStore();
     const [openOrders, setOpenOrders] = useState<Order[]>([]);
     const [activeCurrency, setActiveCurrency] = useState('btc');
 
     const [openSnackbar] = useSnackbar(snackBarOptions);
 
     useEffect(() => {
-        socket.emit('GET_ORDERS', userId);
+        socket.emit('GET_ORDERS', user.id);
 
         socket.on('ORDERS_SENT', (ordersReceivedFromBE: Order[]) => {
             setOpenOrders(ordersReceivedFromBE);
@@ -78,7 +79,7 @@ function App(): JSX.Element {
             status: 'opened',
             currencyPair: `${activeCurrency}/usd`,
             side,
-            userId: 'IgorGonchar'
+            userId: user.id!
         };
 
         socket.emit('SEND_ORDER', order);
